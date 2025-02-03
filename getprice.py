@@ -5,7 +5,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
 
-def get_price_from_symbol(network, symbol):
+def get_contract_from_symbol(network, symbol):
     network = str(network).lower()
     symbol = str(symbol).upper()
 
@@ -31,7 +31,7 @@ def get_price_from_symbol(network, symbol):
         raise e
 
 
-def get_contract_from_symbol(network, symbol):
+def get_price_from_symbol(network, symbol):
     network = str(network).lower()
     symbol = str(symbol).upper()
 
@@ -53,6 +53,7 @@ def get_contract_from_symbol(network, symbol):
         response = session.get(
             COINMARKETURL+"v1/tools/price-conversion", params=parameters)
         data = json.loads(response.text)
-        return float(data["data"]["quote"]["USD"]["price"])
+        price = float(data["data"]["quote"]["USD"]["price"])
+        return {"status": True, "massage": "", "data": price}, 200
     except (ConnectionError, Timeout, TooManyRedirects) as e:
-        raise e
+        return {"status": False, "massage": e, "data": None}, 400
