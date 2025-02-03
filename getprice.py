@@ -26,10 +26,33 @@ def get_price_from_symbol(network, symbol):
     try:
         response = session.get(COINMARKETURL, params=parameters)
         data = json.loads(response.text)
-        return data
+        return data["status"]
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         raise e
 
 
-a = get_price_from_symbol("bitcoin", "usd")
-print(a)
+def get_contract_from_symbol(network, symbol):
+    network = str(network).lower()
+    symbol = str(symbol).upper()
+
+    parameters = {
+        'amount': 1,
+        "symbol": symbol,
+        'convert': "USD"
+    }
+
+    headers = {
+        'Accepts': 'application/json',
+        'X-CMC_PRO_API_KEY': COINMARKETKEY,
+    }
+
+    session = Session()
+    session.headers.update(headers)
+
+    try:
+        response = session.get(
+            COINMARKETURL+"v1/tools/price-conversion", params=parameters)
+        data = json.loads(response.text)
+        return float(data["data"]["quote"]["USD"]["price"])
+    except (ConnectionError, Timeout, TooManyRedirects) as e:
+        raise e
