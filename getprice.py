@@ -1,25 +1,31 @@
 from requests import Request, Session
-from config import COINMARKETAPI
+from config import COINMARKETURL, COINMARKETKEY
+from utils import request
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
-url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
-parameters = {
-    'start': '1',
-    'limit': '5000',
-    'convert': 'USD'
-}
-headers = {
-    'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': COINMARKETAPI,
-}
 
-session = Session()
-session.headers.update(headers)
+def get_price_from_symbol(network, symbol):
+    network = str(network).lower()
+    symbol = str(symbol).upper()
 
-try:
-    response = session.get(url, params=parameters)
-    data = json.loads(response.text)
-    print(data)
-except (ConnectionError, Timeout, TooManyRedirects) as e:
-    print(e)
+    parameters = {
+        'start': '1',
+        'limit': '5000',
+        'convert': symbol
+    }
+
+    headers = {
+        'Accepts': 'application/json',
+        'X-CMC_PRO_API_KEY': COINMARKETURL,
+    }
+
+    session = Session()
+    session.headers.update(headers)
+
+    try:
+        response = session.get(COINMARKETKEY, params=parameters)
+        data = json.loads(response.text)
+        return data
+    except (ConnectionError, Timeout, TooManyRedirects) as e:
+        raise e
