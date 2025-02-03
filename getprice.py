@@ -17,15 +17,19 @@ def get_price_from_symbol(network, symbol):
 
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': COINMARKETURL,
+        'X-CMC_PRO_API_KEY': COINMARKETKEY,
     }
 
     session = Session()
     session.headers.update(headers)
 
     try:
-        response = session.get(COINMARKETKEY, params=parameters)
+        response = session.get(COINMARKETURL, params=parameters)
         data = json.loads(response.text)
         return data
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         raise e
+
+
+a = get_price_from_symbol("bitcoin", "usd")
+print(a)
