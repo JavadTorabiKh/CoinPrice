@@ -41,3 +41,16 @@ Example:
 ```bash
 GET /api/token/BTC
 ```
+### 📤 Response:
+
+```json
+{
+    "symbol": "BTC",
+    "name": "Bitcoin",
+    "price_usd": 45000.23,
+    "market_cap": 850000000000,
+    "volume_24h": 32000000000
+}
+```
+
+## 🌎 Get Global Market Data
