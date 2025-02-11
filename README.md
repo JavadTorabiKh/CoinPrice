@@ -36,3 +36,8 @@ By default, the API will be available at http://127.0.0.1:5000.
 ```bash
 GET /api/token/{symbol}
 ```
+Example:
+
+```bash
+GET /api/token/BTC
+```
