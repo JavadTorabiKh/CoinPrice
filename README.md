@@ -63,3 +63,50 @@ GET /api/token/BTC
 ```bash
 GET /api/global
 ```
+### 📤 Response:
+
+```json
+{
+    "total_market_cap": 2200000000000,
+    "total_volume_24h": 150000000000,
+    "btc_dominance": 47.5
+}
+```
+
+---
+
+## 🛠️ Configuration
+
+You can modify the port and other settings in the .env file:
+
+```env
+PORT=5000
+DEBUG=True
+API_KEY=your_api_key
+```
+
+---
+
+## 📌 Contribute ❤️
+
+If you have ideas to improve this project, feel free to submit a Pull Request or open an Issue.
+
+### 📧 Contact Us: j.2528840@gmail.com
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. Feel free to use it, but please give credit! 🚀
+
+```markdown
+### 🎯 Why This README is Effective:
+- **Uses emojis** for better readability and engagement  
+- **Well-structured** (features, setup, usage, examples, and contribution guide)  
+- **Includes real API request/response examples**  
+- **Environment configuration section for customization**  
+- **Encourages contributions and provides a contact section**  
+- **Mentions the license to clarify usage rights**  
+
+Let me know if you'd like any modifications! 🚀
+```
