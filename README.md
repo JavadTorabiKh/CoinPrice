@@ -29,6 +29,8 @@ python app.py
 ```
 By default, the API will be available at http://127.0.0.1:5000.
 
+---
+
 ## 🔗 Example Requests
 
 ### 📌 Get Token Information
@@ -53,4 +55,11 @@ GET /api/token/BTC
 }
 ```
 
+---
+
+
 ## 🌎 Get Global Market Data
+
+```bash
+GET /api/global
+```
