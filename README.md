@@ -38,6 +38,7 @@ By default, the API will be available at http://127.0.0.1:5000.
 ```bash
 GET /api/token/{symbol}
 ```
+
 Example:
 
 ```bash
@@ -110,3 +111,4 @@ This project is licensed under the MIT License. Feel free to use it, but please 
 
 Let me know if you'd like any modifications! 🚀
 ```
+
