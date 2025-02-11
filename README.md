@@ -20,11 +20,11 @@ Ensure you have Python and `pip` installed, then run:
 pip install -r requirements.txt
 ```
 
-## 🚀 How to Use
 
-### 1️⃣ Install Dependencies
-Ensure you have Python and `pip` installed, then run:
+### 2️⃣ Run the API
+To start the API, simply run:
 
 ```bash
-pip install -r requirements.txt
+python app.py
 ```
+
