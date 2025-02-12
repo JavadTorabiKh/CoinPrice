@@ -1,3 +1,4 @@
+from utils import request_marketcap_v1
 from requests import Request, Session
 from config import COINMARKETURL, COINMARKETKEY
 from utils import request
@@ -32,28 +33,15 @@ def get_contract_from_symbol(network, symbol):
 
 
 def get_price_from_symbol(network, symbol):
-    network = str(network).lower()
-    symbol = str(symbol).upper()
-
-    parameters = {
-        'amount': 1,
-        "symbol": symbol,
-        'convert': "USD"
-    }
-
-    headers = {
-        'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': COINMARKETKEY,
-    }
-
-    session = Session()
-    session.headers.update(headers)
 
     try:
-        response = session.get(
-            COINMARKETURL+"v1/tools/price-conversion", params=parameters)
-        data = json.loads(response.text)
+        data = request_marketcap_v1(
+            network, symbol, "v1/tools/price-conversion", 1)
+        if data is None:
+            raise ConnectionError
+
         price = float(data["data"]["quote"]["USD"]["price"])
         return {"status": True, "massage": "", "data": price}, 200
-    except (ConnectionError, Timeout, TooManyRedirects) as e:
-        return {"status": False, "massage": e, "data": None}, 400
+
+    except:
+        return {"status": False, "massage": "", "data": None}, 400
