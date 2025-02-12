@@ -18,7 +18,7 @@ def get_contract_from_symbol(network, symbol):
             network, "", parameters)
         status = data["status"]
         return {"status": True, "massage": "", "data": status}, 200
-    except (ConnectionError, Timeout, TooManyRedirects) as e:
+    except:
         return {"status": False, "massage": "", "data": None}, 400
 
 
