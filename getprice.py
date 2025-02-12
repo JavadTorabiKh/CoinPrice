@@ -16,9 +16,9 @@ def get_contract_from_symbol(network, symbol):
     try:
         data = request_marketcap_v1(
             network, "v1/tools/price-conversion", parameters)
-        return data["status"]
+        return {"status": True, "massage": "", "data": price}, 200
     except (ConnectionError, Timeout, TooManyRedirects) as e:
-        raise e
+        return {"status": False, "massage": "", "data": None}, 400
 
 
 def get_price_from_symbol(network, symbol, amount, convert):
