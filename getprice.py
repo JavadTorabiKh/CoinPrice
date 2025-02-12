@@ -7,36 +7,30 @@ import json
 
 
 def get_contract_from_symbol(network, symbol):
-    network = str(network).lower()
-    symbol = str(symbol).upper()
 
     parameters = {
         'start': '1',
         'limit': '5000',
         'convert': symbol
     }
-
-    headers = {
-        'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': COINMARKETKEY,
-    }
-
-    session = Session()
-    session.headers.update(headers)
-
     try:
-        response = session.get(COINMARKETURL, params=parameters)
-        data = json.loads(response.text)
+        data = request_marketcap_v1(
+            network, "v1/tools/price-conversion", parameters)
         return data["status"]
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         raise e
 
 
-def get_price_from_symbol(network, symbol):
+def get_price_from_symbol(network, symbol, amount, convert):
 
+    parameters = {
+        'amount': amount,
+        "symbol": symbol,
+        'convert': convert
+    }
     try:
         data = request_marketcap_v1(
-            network, symbol, "v1/tools/price-conversion", 1)
+            network, "v1/tools/price-conversion", parameters)
         if data is None:
             raise ConnectionError
 
