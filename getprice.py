@@ -1,5 +1,4 @@
 from utils import request_marketcap_v1
-from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
