@@ -1,6 +1,5 @@
 from utils import request_marketcap_v1
 from requests import Request, Session
-from config import COINMARKETURL, COINMARKETKEY
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
