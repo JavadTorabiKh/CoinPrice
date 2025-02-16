@@ -1,6 +1,5 @@
 from utils import request_marketcap_v1
-from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-import json
+from requests.exceptions import ConnectionError
 
 
 def get_contract_from_symbol(network, symbol):
