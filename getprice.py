@@ -1,9 +1,5 @@
 from utils import request_marketcap_v1
-from requests import Request, Session
-from config import COINMARKETURL, COINMARKETKEY
-from utils import request
-from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-import json
+from requests.exceptions import ConnectionError
 
 
 def get_contract_from_symbol(network, symbol):
