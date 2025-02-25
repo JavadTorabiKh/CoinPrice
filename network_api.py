@@ -12,4 +12,4 @@ async def execute_function(name: str):
     result = my_function(name)
     return {"result": result}
 
-# uvicorn main:app --reload
+# uvicorn network_api:app --reload
