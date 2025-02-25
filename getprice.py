@@ -18,7 +18,7 @@ def get_contract_from_symbol(network, symbol):
         return {"status": False, "massage": "", "data": None}, 400
 
 
-def get_price_from_symbol(network, symbol, amount, convert):
+async def get_price_from_symbol(network, symbol, amount, convert):
 
     parameters = {
         'amount': amount,
