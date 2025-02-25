@@ -1,15 +1,26 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+
+from getprice import get_contract_from_symbol, get_price_from_symbol
+
 
 app = FastAPI()
 
 
-def my_function(name: str) -> str:
-    return f"Hello, {name}!"
+class InputData(BaseModel):
+    network: str
+    symbol: str
 
 
-@app.get("/execute/{name}")
-async def execute_function(name: str):
-    result = my_function(name)
-    return {"result": result}
+@app.get("")
+async def health_check():
+    return {"status": True, "massage": "", "data": None}, 200
+
+
+@app.post("")
+async def get_price_fromSymbol(data: InputData):
+
+    res = get_price_from_symbol(data.network, data.symbol, 1, "USDC")
+    return res
 
 # uvicorn network_api:app --reload
