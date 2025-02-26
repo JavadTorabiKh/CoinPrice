@@ -32,7 +32,7 @@ async def get_price_from_symbol(network, symbol, amount, convert):
             raise ConnectionError
 
         price = float(data["data"]["quote"]["USD"]["price"])
-        return {"status": True, "massage": "", "data": price}, 200
+        return price
 
     except:
-        return {"status": False, "massage": "", "data": None}, 400
+        return None

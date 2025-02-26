@@ -12,15 +12,17 @@ class InputData(BaseModel):
     symbol: str
 
 
-@app.get("")
+@app.get("/")
 async def health_check():
-    return {"status": True, "massage": "", "data": None}, 200
+    return {
+        "status": True,
+        "message": "",
+        "data": ""
+    }
 
 
 @app.post("/get_price_symbol/")
 async def get_price_fromSymbol(data: InputData):
 
-    res = await get_price_from_symbol(data.network, data.symbol, 1, "USDC")
+    data = await get_price_from_symbol(data.network, data.symbol, 1, "USDC")
     return res
-
-# uvicorn network_api:app --reload
