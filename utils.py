@@ -4,7 +4,7 @@ from config import COINMARKETURL, COINMARKETKEY
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 
 
-def request_marketcap_v1(network, root, parameters):
+async def request_marketcap_v1(network, root, parameters):
 
     network = str(network).lower()
     symbol = str(symbol).upper()
