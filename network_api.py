@@ -18,11 +18,13 @@ async def health_check():
         "status": True,
         "message": "",
         "data": ""
-    }
+    }, 200
 
 
 @app.post("/get_price_symbol/")
 async def get_price_fromSymbol(data: InputData):
 
     data = await get_price_from_symbol(data.network, data.symbol, 1, "USDC")
-    return res
+    if data is not None:
+        return {"status": True, "massage": "", "data": data}, 200
+    return {"status": False, "massage": "", "data": ""}, 200

@@ -26,7 +26,7 @@ async def get_price_from_symbol(network, symbol, amount, convert):
         'convert': convert
     }
     try:
-        data = request_marketcap_v1(
+        data = await request_marketcap_v1(
             network, "v1/tools/price-conversion", parameters)
         if data is None:
             raise ConnectionError
