@@ -12,7 +12,7 @@ class InputData(BaseModel):
     symbol: str
 
 
-@app.get("/")
+@app.get("/v1/prodict/")
 async def health_check():
     return {
         "status": True,
@@ -21,7 +21,7 @@ async def health_check():
     }, 200
 
 
-@app.post("/get_price_symbol/")
+@app.post("/v1/prodict/get_price_symbol/")
 async def get_price_fromSymbol(data: InputData):
 
     data = await get_price_from_symbol(data.network, data.symbol, 1, "USDC")
