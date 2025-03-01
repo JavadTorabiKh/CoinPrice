@@ -27,7 +27,7 @@ To start the API, simply run:
 ```bash
 uvicorn network_api:app --reload
 ```
-By default, the API will be available at http://127.0.0.1:5000.
+By default, the API will be available at http://127.0.0.1:8000.
 
 ---
 
