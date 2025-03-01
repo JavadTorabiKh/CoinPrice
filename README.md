@@ -36,7 +36,7 @@ By default, the API will be available at http://127.0.0.1:8000.
 ### 📌 Get Token Information
 
 ```bash
-GET /api/token/{symbol}
+GET /v1/prodict/{symbol}
 ```
 
 Example:
