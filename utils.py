@@ -18,7 +18,7 @@ async def request_marketcap_v1(network, root, parameters):
     session.headers.update(headers)
 
     try:
-        response = session.get(
+        response = await session.get(
             COINMARKETURL+root, params=parameters)
         data = json.loads(response.text)
         return data
