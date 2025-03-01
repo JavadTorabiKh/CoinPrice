@@ -42,7 +42,7 @@ GET /v1/prodict/{symbol}
 Example:
 
 ```bash
-GET /api/token/BTC
+GET /v1/prodict/BTC
 ```
 ### 📤 Response:
 
