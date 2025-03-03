@@ -92,7 +92,7 @@ API_KEY=your_api_key
 
 If you have ideas to improve this project, feel free to submit a Pull Request or open an Issue.
 
-### 📧 Contact Us: j.2528840@gmail.com
+📧 Contact Us: j.2528840@gmail.com
 
 ---
 
