@@ -98,6 +98,8 @@ If you have ideas to improve this project, feel free to submit a Pull Request or
 
 ## 📜 License
 
-This project is licensed under the MIT License. Feel free to use it, but please give credit! 🚀
+This project is licensed under the MIT License. 
+
+Feel free to use it, but please give credit! 🚀
 
 
