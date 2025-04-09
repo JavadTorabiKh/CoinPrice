@@ -22,6 +22,15 @@ async def health_check():
 
 
 @app.post("/v1/prodict/get_price_symbol/")
+async def get_contract_fromSymbol(data: InputData):
+
+    data = await get_contract_from_symbol(data.network, data.start, data.limit, data.symbol)
+    if data is not None:
+        return {"status": True, "massage": "", "data": data}, 200
+    return {"status": False, "massage": "", "data": ""}, 200
+
+
+@app.post("/v1/prodict/get_price_symbol/")
 async def get_price_fromSymbol(data: InputData):
 
     data = await get_price_from_symbol(data.network, data.symbol, 1, "USDC")
