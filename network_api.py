@@ -21,7 +21,7 @@ async def health_check():
     }, 200
 
 
-@app.post("/v1/prodict/get_price_symbol/")
+@app.post("/v1/prodict/get_contract_symbol/")
 async def get_contract_fromSymbol(data: InputData):
 
     data = await get_contract_from_symbol(data.network, data.start, data.limit, data.symbol)
