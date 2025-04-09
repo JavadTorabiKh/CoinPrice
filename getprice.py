@@ -2,20 +2,20 @@ from utils import request_marketcap_v1
 from requests.exceptions import ConnectionError
 
 
-def get_contract_from_symbol(network, symbol):
+def get_contract_from_symbol(network, start, limit, symbol):
 
     parameters = {
-        'start': '1',
-        'limit': '5000',
+        'start': start,
+        'limit': limit,
         'convert': symbol
     }
     try:
         data = request_marketcap_v1(
             network, "", parameters)
-        status = data["status"]
-        return {"status": True, "massage": "", "data": status}, 200
+        contract = data["contract"]
+        return contract
     except:
-        return {"status": False, "massage": "", "data": None}, 400
+        return None
 
 
 async def get_price_from_symbol(network, symbol, amount, convert):
