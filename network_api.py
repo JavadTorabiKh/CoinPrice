@@ -12,6 +12,7 @@ class InputData(BaseModel):
     symbol: str
 
 
+# health check api
 @app.get("/v1/prodict/")
 async def health_check():
     return {
@@ -21,6 +22,7 @@ async def health_check():
     }, 200
 
 
+# get symbol valid from contract
 @app.post("/v1/prodict/get_contract_symbol/")
 async def get_contract_fromSymbol(data: InputData):
 
@@ -30,6 +32,7 @@ async def get_contract_fromSymbol(data: InputData):
     return {"status": False, "massage": "", "data": ""}, 200
 
 
+# get price with symbol
 @app.post("/v1/prodict/get_price_symbol/")
 async def get_price_fromSymbol(data: InputData):
 
