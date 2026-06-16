@@ -6,7 +6,6 @@ from getprice import get_contract_from_symbol, get_price_from_symbol
 
 app = FastAPI()
 
-
 class InputData(BaseModel):
     network: str
     symbol: str
