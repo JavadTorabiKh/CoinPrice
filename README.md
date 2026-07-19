@@ -54,6 +54,7 @@ GET /v1/prodict/BTC
     "market_cap": 850000000000,
     "volume_24h": 32000000000
 }
+
 ```
 
 ---
@@ -100,6 +101,6 @@ If you have ideas to improve this project, feel free to submit a Pull Request or
 
 This project is licensed under the MIT License. 
 
-Feel free to use it, but please give credit! 🚀
+Feel free to use it! 🚀
 
 
